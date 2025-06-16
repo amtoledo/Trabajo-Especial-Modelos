@@ -35,10 +35,12 @@ Se simula un sistema con arribos siguiendo un proceso de Poisson no homogéneo y
 - Algoritmo basado en operaciones XOR y desplazamientos bit a bit.
 - Fórmula:  
 ```math
-X_n = X_{n-1} \oplus (X_{n-1} \ll 13)  \\
-X_n = X_n \oplus (X_n \gg 7)  \\
-X_n = X_n \oplus (X_n \ll 17)  \\
-\text{donde } X_n \in \{0, \ldots, 2^{64} - 1\}, \quad X_0 \neq 0
+\begin{aligned}
+&\quad X_n = X_{n-1} \oplus (X_{n-1} \ll 13)  \\
+&\quad X_n = X_n \oplus (X_n \gg 7)  \\
+&\quad X_n = X_n \oplus (X_n \ll 17)  \\
+&\text{donde } X_n \in \{0, \ldots, 2^{64} - 1\}, \quad X_0 \neq 0
+\end{aligned}
 ```
 
 - Eficiente y liviano, con buena distribución para ciertas configuraciones.
