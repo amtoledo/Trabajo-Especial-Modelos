@@ -108,15 +108,32 @@ Atiende a cada uno de los eventos si el servidor está disponible. En caso de qu
 
 ### 5.4 Simulación
 
-COMPLETAR
+Se simula el sistema durante 48 horas, generando eventos de arribo y servicio. Se registran métricas como:
+- Tiempo promedio en el sistema por cliente.
+- Porcentaje de tiempo que el servidor está ocupado.
+- Longitud de la cola a lo largo del tiempo.
+- Tiempo de espera promedio en la cola.
 
 ## 6. Resultados
 
-COMPLETAR
+Nos parecio importante comparar el uso del servidor con la longitud de la cola para analizar y comprender el comportamiento del sistema de colas con cada generador de números aleatorios.
+
+### 6.1 Longitud de la Cola a lo Largo del Tiempo
+![Evolución de la longitud de la cola a lo largo del tiempo para cada generador de números aleatorios.](largo_cola.png)
+
+Podemos observar que el generador Xorshift presenta una longitud de cola más estable y baja en comparación con los otros generadores, lo que indica un mejor rendimiento en la simulación del sistema de colas.
+Aunque por momentos el generador LCG y MT19937 muestran que la cola se vacia, el LCG se mantiene con una longitud de cola mas alta en toda la simulación. 
+
+### 6.2 Tiempo de uso del servidor
+![Tiempo promedio en el sistema por cliente.](./utilizacion%20del%20server.png)
+Podemos notar que ambos 3 generadores la mayoria del tiempo se mantienen con un tiempo cercano de de uso del servidor, vemos que LCG y MT19937 tienen un comportamiento similar, cuando su cola esta vacia el servidor no se utiliza pues no hay arribo de clientes en ese momento, tiene un uso constante del servidor.
 
 ## 7. Conclusiones
 
-COMPLETAR
+En conclusion a este breve analisis, podemos afirmar que el generador Xorshift es el que mejor se adapta a la simulación del sistema de colas, ya que presenta una longitud de cola más estable y baja en comparación con los otros generadores.
+El generador LCG, aunque es simple y rápido de implementar, muestra una mayor longitud de cola y un uso del servidor menos eficiente. Por otro lado, el Mersenne Twister (MT19937) ofrece un rendimiento similar al LCG, pero con una mayor complejidad computacional y no es tan estable como el XorShift.
+Asi que si bien algunos generadores son mas faciles de implementar, no siempre son los mejores para simular un sistema de colas, y es importante evaluar el rendimiento de cada generador en función del problema a resolver.
+
 
 ## 8. Código fuente
 
